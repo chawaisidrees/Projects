@@ -1,0 +1,48 @@
+.note-form {
+  background: linear-gradient(135deg, #13131f, #1a1a2e);
+  border: 1px solid rgba(99,102,241,0.2);
+  border-radius: 18px;
+  padding: 28px;
+  margin-bottom: 32px;
+}
+.note-form h2 { font-size: 1.1rem; color: #818cf8; margin-bottom: 18px; font-family: 'JetBrains Mono', monospace; }
+
+.input-group { display: flex; flex-direction: column; gap: 6px; margin-bottom: 14px; }
+.input-group label { font-size: 0.72rem; color: #6b7280; text-transform: uppercase; letter-spacing: 1px; }
+.input-group input,
+.input-group textarea {
+  background: #0a0a0f;
+  border: 1px solid rgba(99,102,241,0.3);
+  border-radius: 10px;
+  padding: 12px 14px;
+  color: #e8e8f0;
+  font-size: 0.95rem;
+  font-family: 'Space Grotesk', sans-serif;
+  outline: none;
+  resize: vertical;
+  width: 100%;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.input-group input:focus,
+.input-group textarea:focus {
+  border-color: #818cf8;
+  box-shadow: 0 0 0 3px rgba(129,140,248,0.12);
+}
+
+.form-btns { display: flex; gap: 12px; }
+
+.btn-primary {
+  background: linear-gradient(135deg, #6366f1, #818cf8);
+  color: white; border: none; border-radius: 10px;
+  padding: 12px 24px; font-size: 0.95rem; font-weight: 600;
+  cursor: pointer; font-family: 'Space Grotesk', sans-serif; transition: all 0.2s;
+}
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(99,102,241,0.4); }
+
+.btn-cancel {
+  background: rgba(255,255,255,0.05); color: #9ca3af;
+  border: 1px solid rgba(255,255,255,0.1); border-radius: 10px;
+  padding: 12px 20px; font-size: 0.95rem; cursor: pointer;
+  font-family: 'Space Grotesk', sans-serif; transition: all 0.2s;
+}
+.btn-cancel:hover { background: rgba(255,255,255,0.1); }
