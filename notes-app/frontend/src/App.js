@@ -5,11 +5,14 @@ import NoteCard from "./components/NoteCard";
 import "./App.css";
 
 export default function App() {
-
-  const [notes,    setNotes]    = useState([]);
-  const [loading,  setLoading]  = useState(true);
+  const [search, setSearch] = useState("");
+  const [notes, setNotes] = useState([]);
+  const [loading, setLoading] = useState(true);
   const [editNote, setEditNote] = useState(null);
-  const [message,  setMessage]  = useState("");
+  const [message, setMessage] = useState("");
+  const filteredNotes = notes.filter(note =>
+    note.title.toLowerCase().includes(search.toLowerCase())
+  );
 
   useEffect(() => {
     fetchNotes();
@@ -50,7 +53,8 @@ export default function App() {
 
       <header className="header">
         <h1>📓 Notes App</h1>
-        <p>FastAPI + PostgreSQL + React</p>
+        <p>Simple CRUD app built with React and a REST API backend.</p>
+
       </header>
 
       <div className="stats">
@@ -64,6 +68,12 @@ export default function App() {
         onSubmit={handleSubmit}
         editNote={editNote}
         onCancel={() => setEditNote(null)}
+      />
+      <input
+        className="search-input"
+        placeholder="Search notes..."
+        value={search}
+        onChange={e => setSearch(e.target.value)}
       />
 
       <div className="section-title">All Notes ({notes.length})</div>
@@ -81,7 +91,7 @@ export default function App() {
         </div>
       ) : (
         <div className="grid">
-          {notes.map((note) => (
+          {filteredNotes.map((note) => (
             <NoteCard
               key={note.id}
               note={note}
